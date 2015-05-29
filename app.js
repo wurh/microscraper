@@ -1,15 +1,39 @@
 var  http = require('http'),
      url = require('url'),
+     allData = require('./allData'),
      fs = require("fs")
 
-var host = 'http://hrs.ucweb.local/uchr/Portal/EPhoto.aspx?objname=3896A66628A6475847B66878381887C678&ID=3302';
+//var host = 'http://hrs.ucweb.local/uchr/Portal/EPhoto.aspx?objname=3896A66628A6475847B66878381887C678&ID=3302';
 var html = [];
-for(var i = 2000; i<4100;i++ ){
-  host = 'http://hrs.ucweb.local/uchr/Portal/EPhoto.aspx?objname=3896A66628A6475847B66878381887C678&ID='+i;
-  getFile(host,'D://pic2/'+i+'.png')
+//for(var i = 2000; i<4100;i++ ){
+//  host = 'http://hrs.ucweb.local/uchr/Portal/EPhoto.aspx?objname=3896A66628A6475847B66878381887C678&ID='+i;
+//  getFile(host,'D://pic2/'+i+'.png')
+//}
+getData();
+console.log('------------done!----------------');
+
+function getData(){
+    var tempArr = listHandler(3001,3906,allData.list);
+    initImg(tempArr);
 }
 
-console.log('------------done!----------------');
+function initImg(arr){
+    for(var i = 0 ; i < arr.length; i++){
+        var imgUrl = arr[i].img_url;
+        var imgName = 'img_url'+arr[i].id+'.png';
+        getFile(imgUrl,'./img/'+imgName)
+       // console.log(imgName);
+    }
+}
+
+function listHandler(start,end,arr){
+    var list = [];
+    for(var i = start;i < end;i++){
+        list.push(arr[i]);
+    }
+    return list;
+}
+
 
 /**
  * 远程下载文件
