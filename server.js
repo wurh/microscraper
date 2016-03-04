@@ -2,7 +2,6 @@ var  http = require('http'),
      url = require('url'),
      fs = require("fs")
 
-//var host = 'http://hrs.ucweb.local/uchr/Portal/EPhoto.aspx?objname=3896A66628A6475847B66878381887C678&ID=3302';
 var html = [];
 for(var i = 1; i<100;i++ ){
   host = 'http://h5.fpwap.com/go/dgmmd/resource/'+i+'.jpg';

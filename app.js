@@ -3,10 +3,8 @@ var  http = require('http'),
      allData = require('./allData'),
      fs = require("fs")
 
-//var host = 'http://hrs.ucweb.local/uchr/Portal/EPhoto.aspx?objname=3896A66628A6475847B66878381887C678&ID=3302';
 var html = [];
 //for(var i = 2000; i<4100;i++ ){
-//  host = 'http://hrs.ucweb.local/uchr/Portal/EPhoto.aspx?objname=3896A66628A6475847B66878381887C678&ID='+i;
 //  getFile(host,'D://pic2/'+i+'.png')
 //}
 getData();
